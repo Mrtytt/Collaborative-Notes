@@ -24,3 +24,12 @@ export async function loginUser(data: {
   });
   return await res.json();
 }
+
+export function isAuthorized(): boolean {
+  const token = localStorage.getItem("token");
+  return !!token; // varsa true döner, yoksa false
+}
+
+export function logoutUser() {
+  localStorage.removeItem("token");
+}
