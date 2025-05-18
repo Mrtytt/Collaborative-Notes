@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { loginUser } from "../services/auth";
+import { isAuthorized, loginUser } from "../services/auth";
 import '../css/global.css';
 import { useNavigate } from "react-router-dom";
 
@@ -18,9 +18,8 @@ function Login() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     const res = await loginUser(form);
-    console.log("Gelen yanıt:", res); // <-- bu kısmı geliştirici konsolda incele
     if (res.token) {
-      localStorage.setItem("access_token", res.token);
+      localStorage.setItem("token", res.token);
       navigate("/home");
       setMessage("Giriş başarılı! Hoş geldiniz.");
     } else if (res.detail) {
