@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../css/global.css";
+import Footer from '../components/Footer';
 
 export default function NotFound() {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ export default function NotFound() {
       >
         Geri Dön
       </button>
+      <Footer />
     </div>
   );
 }

@@ -8,6 +8,8 @@ import NotFound from "./pages/NotFound";
 import Loading from "./pages/Loading";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
+import Help from "./pages/Help";
+import Settings from "./pages/Settings";
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +35,8 @@ const App: React.FC = () => {
         <Route element={<ProtectedRoute />}>
           <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/help" element={<Help />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

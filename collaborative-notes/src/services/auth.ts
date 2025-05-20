@@ -33,3 +33,44 @@ export function isAuthorized(): boolean {
 export function logoutUser() {
   localStorage.removeItem("token");
 }
+
+export function getCurrentUser() {
+  const user = localStorage.getItem("user");
+  return user ? JSON.parse(user) : null;
+}
+
+export const fetchUserProfile = async () => {
+  const token = localStorage.getItem("token");
+
+  const response = await fetch(`${API_URL}/profile`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Profil alınamadı");
+  }
+
+  return await response.json();
+};
+
+export const updateUserProfile = async (data: { username: string; email: string; password: string }) => {
+  const token = localStorage.getItem("token");
+  const response = await fetch(`${API_URL}/profile`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error("Profil güncelleme başarısız.");
+  }
+
+  return await response.json();
+}
+
