@@ -16,7 +16,7 @@ export default function Help() {
       <div className="flex flex-col items-center justify-center w-full p-4">
         <div className="w-full max-w-3xl p-8 bg-white border border-blue-100 shadow-xl rounded-2xl">
           <h1 className="mb-4 text-3xl font-bold text-center text-blue-600 md:text-4xl">
-            Yardım Sayfası
+            Yardım
           </h1>
           <p className="mb-6 text-lg text-center text-gray-600">
             Uygulamayı nasıl kullanacağınız ve sıkça sorulan sorularla ilgili bilgiler aşağıdadır.

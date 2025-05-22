@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import NoteDrawer from "./NoteDrawer";
 
 interface DrawerProps {
   isOpen: boolean;
@@ -120,6 +121,7 @@ export default function Drawer({ isOpen, toggleDrawer }: DrawerProps) {
             </button>
           </li>
         </ul>
+        <NoteDrawer />
       </div>
 
       {/* Toggle Button */}
